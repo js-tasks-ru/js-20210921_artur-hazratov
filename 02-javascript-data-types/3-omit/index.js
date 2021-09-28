@@ -5,5 +5,11 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-
+  let clonedObj = Object.assign({}, obj);
+  for (let key in clonedObj) {
+    if (fields.includes(key)) {
+      delete clonedObj[key];
+    }
+  }
+  return clonedObj;
 };
