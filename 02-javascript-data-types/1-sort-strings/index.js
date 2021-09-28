@@ -10,7 +10,7 @@ export function sortStrings(arr, param = 'asc') {
     return sortedOne.sort(function(a, b) {
       let normA = a.normalize();
       let normB = b.normalize();
-      return normA.toLowerCase().localeCompare(normB.toLowerCase(), 'ru', {caseFirst: 'upper'});
+      return normA.localeCompare(normB, ['ru', 'en'], {caseFirst: 'upper'});
       
     });
   }
@@ -19,7 +19,7 @@ export function sortStrings(arr, param = 'asc') {
     return sortedOne.sort(function(a, b) {
       let normA = a.normalize();
       let normB = b.normalize();
-      return normA.toLowerCase().localeCompare(normB.toLowerCase(), 'ru', {caseFirst: 'upper'});          
+      return normA.localeCompare(normB, ['ru', 'en'], {caseFirst: 'upper'});          
     }).reverse();
   }
 }
