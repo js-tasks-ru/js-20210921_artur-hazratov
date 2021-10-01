@@ -5,21 +5,12 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-  let sortedOne = [...arr];
-  if (param === 'asc') {
-    return sortedOne.sort(function(a, b) {
-      let normA = a.normalize();
-      let normB = b.normalize();
-      return normA.localeCompare(normB, ['ru', 'en'], {caseFirst: 'upper'});
-      
-    });
-  }
-      
-  if (param === 'desc') {
-    return sortedOne.sort(function(a, b) {
-      let normA = a.normalize();
-      let normB = b.normalize();
-      return normA.localeCompare(normB, ['ru', 'en'], {caseFirst: 'upper'});          
-    }).reverse();
-  }
+  const sortedOne = [...arr];
+  const directions = {
+    asc: 1,
+    desc: -1
+  };
+  return sortedOne.sort((a, b) => { 
+    return directions[param] * a.localeCompare(b, ['ru', 'en'], {caseFirst: 'upper'});
+  });
 }

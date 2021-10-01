@@ -4,5 +4,14 @@
  * @returns {*[]} - the new array with uniq values
  */
 export function uniq(arr) {
-
+  if (arr && arr.length > 0) {
+    return arr.reduce((prevVal, curVal) => {
+      if (prevVal.indexOf(curVal) === -1) {
+        prevVal.push(curVal);
+      }
+      return prevVal;
+    }, []);
+  } else { 
+    return [];
+  }
 }
