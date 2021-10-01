@@ -10,7 +10,5 @@ export function invertObj(obj) {
       inverted[value] = key;
     }
     return inverted;
-  } else {
-    return undefined;
-  }
+  } return;
 }

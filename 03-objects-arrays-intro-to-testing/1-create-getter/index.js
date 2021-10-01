@@ -5,9 +5,9 @@
  */
 export function createGetter(path) {
   if (path) {
-    let pathToObj = path.split('.');
-    let firstProp;
     return function (obj) {
+      let pathToObj = path.split('.');
+      let firstProp;
       if (obj.hasOwnProperty(pathToObj[0])) {
         firstProp = obj[pathToObj[0]];
         for (let i = 1; i < pathToObj.length; i++) {
@@ -19,7 +19,5 @@ export function createGetter(path) {
       }
     };
       
-  } else {
-    return path;
-  }
+  } return path;
 }
